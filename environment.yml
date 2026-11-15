@@ -1,0 +1,20 @@
+# 따릉이 조별과제 전용 환경
+#   만들기 : conda env create -f environment.yml
+#   켜기   : conda activate ttareungi
+name: ttareungi
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy
+  - pandas
+  - scipy
+  - scikit-learn
+  - matplotlib
+  - geopandas
+  - pyogrio
+  - pyproj
+  - rasterio
+  - openpyxl
+  - lightgbm
+  - shap
