@@ -250,14 +250,29 @@ def slope_raster():
 
 
 def slope_features(lon, lat, raster):                            # 60번
+    """조원 코드는 src.sample()을 쓰지만, 일부 rasterio·affine 버전 조합에서 sample()이
+    TypeError를 내므로 같은 규칙(픽셀 = floor(~transform * (x, y)))으로 직접 읽는다.
+    도시별로 필요한 영역만 한 번에 읽어서 1.9GB 래스터 전체를 메모리에 올리지 않는다.
+    결과가 조원 값과 같은지는 기존 대여소 재검증(validation_v2.csv)에서 확인된다."""
     import rasterio
     from rasterio.warp import transform
+    from rasterio.windows import Window
     with rasterio.open(raster) as src:
         xs, ys = transform("EPSG:4326", src.crs, list(lon), list(lat))
-        vals = [np.nan if np.ma.is_masked(v[0]) else float(v[0])
-                for v in src.sample(list(zip(xs, ys)), indexes=1, masked=True)]
-    v = np.array(vals)
-    return pd.DataFrame({"slope_value": v, "slope_missing": np.isnan(v).astype(int)})
+        a = src.transform
+        col = np.floor((np.asarray(xs) - a.c) / a.a).astype(np.int64)    # a.a = 픽셀 폭, a.c = 왼쪽 x
+        row = np.floor((np.asarray(ys) - a.f) / a.e).astype(np.int64)    # a.e = -픽셀 높이, a.f = 위쪽 y
+        out = np.full(len(col), np.nan)
+        inside = (col >= 0) & (col < src.width) & (row >= 0) & (row < src.height)
+        # 서로 멀리 떨어진 도시를 한 창으로 읽지 않도록 50km 단위 묶음별로 읽기
+        key = (np.asarray(xs) // 50000).astype(np.int64) * 100000 + (np.asarray(ys) // 50000).astype(np.int64)
+        for k in np.unique(key[inside]):
+            m = inside & (key == k)
+            c0, c1, r0, r1 = col[m].min(), col[m].max(), row[m].min(), row[m].max()
+            arr = src.read(1, window=Window(c0, r0, c1 - c0 + 1, r1 - r0 + 1), masked=True)
+            vals = arr[row[m] - r0, col[m] - c0]
+            out[m] = np.where(np.ma.getmaskarray(vals), np.nan, np.ma.getdata(vals)).astype(float)
+    return pd.DataFrame({"slope_value": out, "slope_missing": np.isnan(out).astype(int)})
 
 
 # ================================================================ 피처 계산 (조원 코드와 같은 정의)
