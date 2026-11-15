@@ -1,0 +1,4 @@
+﻿city,n_candidates,threshold_n_out,in_range,out_of_range,level_ratio_k
+daejeon,3395,1,1225,2170,0.7595292258988839
+sejong,1259,1,403,856,0.5875954937602633
+changwon,3934,2,1729,2205,1.9091148093965065
