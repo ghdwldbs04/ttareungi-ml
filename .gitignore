@@ -1,0 +1,10 @@
+__pycache__/
+.ipynb_checkpoints/
+*.zip
+__MACOSX/
+.DS_Store
+results/*.pkl
+.env
+**/api_key.txt
+data/raw/
+data/processed/

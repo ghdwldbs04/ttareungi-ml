@@ -1,0 +1,37 @@
+﻿column,description,dtype,missing_count
+city,도시 구분,object,0
+lat,대여소 위도,float64,0
+lon,대여소 경도,float64,0
+x,대여소 투영 좌표 X,float64,0
+y,대여소 투영 좌표 Y,float64,0
+bus_300,반경 300m 이내 버스정류장 수,int64,0
+bus_500,반경 500m 이내 버스정류장 수,int64,0
+bus_1000,반경 1000m 이내 버스정류장 수,int64,0
+dist_subway_m,원본 전체 도시철도 역사 좌표 중 최근접 거리(m),float64,0
+subway_500,반경 500m 이내 통합 도시철도 역사 위치 수,int64,0
+subway_1000,반경 1000m 이내 통합 도시철도 역사 위치 수,int64,0
+shop_300,반경 300m 이내 상가 수,int64,0
+shop_500,반경 500m 이내 상가 수,int64,0
+shop_1000,반경 1000m 이내 상가 수,int64,0
+food_500,반경 500m 이내 음식업 상가 수,int64,0
+dist_park_m,최근접 공원 대표 좌표까지 거리(m),float64,0
+park_500,반경 500m 이내 공원 대표 좌표 수,int64,0
+park_area_500,반경 500m 이내 대표 좌표를 가진 공원의 전체 면적 합,float64,0
+dist_univ_m,최근접 정제 대학교 캠퍼스 좌표까지 거리(m),float64,0
+univ_300,반경 300m 이내 정제 대학교 캠퍼스 좌표 수,int64,0
+univ_500,반경 500m 이내 정제 대학교 캠퍼스 좌표 수,int64,0
+univ_1000,반경 1000m 이내 정제 대학교 캠퍼스 좌표 수,int64,0
+grid_pop_total,SGIS 2024년 해당 1km 격자의 총인구,float64,26
+grid_households,SGIS 2024년 해당 1km 격자의 총가구수,float64,29
+grid_housing,SGIS 2024년 해당 1km 격자의 총주택(거처)수,float64,56
+grid_businesses,SGIS 2024년 해당 1km 격자의 총사업체수,float64,11
+grid_workers,SGIS 2024년 해당 1km 격자의 총종사자수,float64,11
+grid_pop_total_missing,격자 총인구 결측 여부(1=결측),int64,0
+grid_households_missing,격자 총가구수 결측 여부(1=결측),int64,0
+grid_housing_missing,격자 총주택수 결측 여부(1=결측),int64,0
+grid_businesses_missing,격자 총사업체수 결측 여부(1=결측),int64,0
+grid_workers_missing,격자 총종사자수 결측 여부(1=결측),int64,0
+grid_any_missing,SGIS 5개 통계 중 하나라도 결측인지 여부,int64,0
+grid_all_missing,SGIS 5개 통계가 모두 결측인지 여부,int64,0
+slope_value,대여소 위치의 경사도 래스터 픽셀값(단위 미확인),float64,7
+slope_missing,경사도 래스터 NoData 여부(1=결측),int64,0

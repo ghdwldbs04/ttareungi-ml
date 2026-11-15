@@ -1,0 +1,18 @@
+﻿항목,값
+GBM 구현,LGBMRegressor
+GBM colsample_bytree,0.8
+GBM learning_rate,0.03
+GBM min_child_samples,20
+GBM n_estimators,600
+GBM num_leaves,31
+GBM random_state,42
+GBM subsample,0.8
+GBM subsample_freq,1
+Ridge,"StandardScaler + RidgeCV(alpha = 10^-2 ~ 10^3, 20개), 개수·거리 피처 log1p"
+튜닝,하이퍼파라미터 고정(탐색 없음) — 전 실험 동일
+서울 내부 검증,자치구 GroupKFold 5-fold
+현지 공간 블록,"2000m 격자 블록 단위 추출, 학습 대여소 500m 이내 평가 대여소 제외"
+서울+현지 함께,"현지 표본 가중치 5, 도시 구분 변수(is_local) 추가"
+난수 시드,42 (+반복 번호)
+반복 횟수,"E2v2 20회, E3v2 10회, P1 10회"
+버전,"lightgbm 4.7.0, scikit-learn 1.5.1, python 3.12.7"

@@ -1,0 +1,53 @@
+﻿column,description,dtype,missing_count,role,model_input_recommended
+city,도시 구분,object,0,범주형 입력 후보,Y
+station,대여소 식별자,object,0,식별자,N
+lat,대여소 위도,float64,0,수치형 입력 후보,Y
+lon,대여소 경도,float64,0,수치형 입력 후보,Y
+x,대여소 투영 좌표 X,float64,0,수치형 입력 후보,Y
+y,대여소 투영 좌표 Y,float64,0,수치형 입력 후보,Y
+daily_mean,대여소 일평균 대여량(목표변수 후보),float64,0,목표변수/누수 주의,N
+total,집계 기간 총대여량,int64,0,목표변수/누수 주의,N
+active_days,대여량 집계에 사용된 유효 일수,int64,0,목표변수/누수 주의,N
+pop_1km,기존 반경 1km 인구 관련 피처(원래 산출 기준 확인 필요),float64,0,산출 근거 확인 필요,보류
+young_share_1km,기존 반경 1km 청년 비율 관련 피처(산출 기준 확인 필요),float64,29,산출 근거 확인 필요,보류
+workers_1km,기존 반경 1km 종사자 관련 피처(산출 기준 확인 필요),float64,0,산출 근거 확인 필요,보류
+firms_1km,기존 반경 1km 사업체 관련 피처(산출 기준 확인 필요),float64,0,산출 근거 확인 필요,보류
+stations_500,기존 반경 500m 대여소 관련 피처(산출 기준 확인 필요),float64,0,산출 근거 확인 필요,보류
+dist_nn_station_m,"기존 최근접 다른 대여소 거리(m, 산출 기준 확인 필요)",float64,0,산출 근거 확인 필요,보류
+log_y,일평균 대여량의 로그 변환값(목표변수 후보),float64,0,목표변수/누수 주의,N
+rank_pct,대여 실적 기반 순위 백분위,float64,0,목표변수/누수 주의,N
+dist_river_m,"기존 하천 관련 거리 피처(m, 산출 기준 확인 필요)",float64,0,산출 근거 확인 필요,보류
+apt_share_1km,기존 반경 1km 아파트 비율 관련 피처(산출 기준 확인 필요),float64,228,산출 근거 확인 필요,보류
+oneperson_share_1km,기존 반경 1km 1인 가구 비율 관련 피처(산출 기준 확인 필요),float64,32,산출 근거 확인 필요,보류
+bus_300,반경 300m 이내 버스정류장 수,int64,0,수치형 입력 후보,Y
+bus_500,반경 500m 이내 버스정류장 수,int64,0,수치형 입력 후보,Y
+bus_1000,반경 1000m 이내 버스정류장 수,int64,0,수치형 입력 후보,Y
+dist_subway_m,원본 전체 도시철도 역사 좌표 중 최근접 거리(m),float64,0,수치형 입력 후보,Y
+subway_500,반경 500m 이내 통합 도시철도 역사 위치 수,int64,0,수치형 입력 후보,Y
+subway_1000,반경 1000m 이내 통합 도시철도 역사 위치 수,int64,0,수치형 입력 후보,Y
+shop_300,반경 300m 이내 상가 수,int64,0,수치형 입력 후보,Y
+shop_500,반경 500m 이내 상가 수,int64,0,수치형 입력 후보,Y
+shop_1000,반경 1000m 이내 상가 수,int64,0,수치형 입력 후보,Y
+food_500,반경 500m 이내 음식업 상가 수,int64,0,수치형 입력 후보,Y
+dist_park_m,최근접 공원 대표 좌표까지 거리(m),float64,0,수치형 입력 후보,Y
+park_500,반경 500m 이내 공원 대표 좌표 수,int64,0,수치형 입력 후보,Y
+park_area_500,반경 500m 이내 대표 좌표를 가진 공원의 전체 면적 합,float64,0,수치형 입력 후보,Y
+dist_univ_m,최근접 정제 대학교 캠퍼스 좌표까지 거리(m),float64,0,수치형 입력 후보,Y
+univ_300,반경 300m 이내 정제 대학교 캠퍼스 좌표 수,int64,0,수치형 입력 후보,Y
+univ_500,반경 500m 이내 정제 대학교 캠퍼스 좌표 수,int64,0,수치형 입력 후보,Y
+univ_1000,반경 1000m 이내 정제 대학교 캠퍼스 좌표 수,int64,0,수치형 입력 후보,Y
+GRID_CD,SGIS 2024년 1km 격자 식별 코드,object,0,식별자,N
+grid_pop_total,SGIS 2024년 해당 1km 격자의 총인구,float64,26,수치형 입력 후보,Y
+grid_households,SGIS 2024년 해당 1km 격자의 총가구수,float64,29,수치형 입력 후보,Y
+grid_housing,SGIS 2024년 해당 1km 격자의 총주택(거처)수,float64,56,수치형 입력 후보,Y
+grid_businesses,SGIS 2024년 해당 1km 격자의 총사업체수,float64,11,수치형 입력 후보,Y
+grid_workers,SGIS 2024년 해당 1km 격자의 총종사자수,float64,11,수치형 입력 후보,Y
+grid_pop_total_missing,격자 총인구 결측 여부(1=결측),int64,0,결측 표시 입력 후보,Y
+grid_households_missing,격자 총가구수 결측 여부(1=결측),int64,0,결측 표시 입력 후보,Y
+grid_housing_missing,격자 총주택수 결측 여부(1=결측),int64,0,결측 표시 입력 후보,Y
+grid_businesses_missing,격자 총사업체수 결측 여부(1=결측),int64,0,결측 표시 입력 후보,Y
+grid_workers_missing,격자 총종사자수 결측 여부(1=결측),int64,0,결측 표시 입력 후보,Y
+grid_any_missing,SGIS 5개 통계 중 하나라도 결측인지 여부,int64,0,결측 표시 입력 후보,Y
+grid_all_missing,SGIS 5개 통계가 모두 결측인지 여부,int64,0,결측 표시 입력 후보,Y
+slope_value,대여소 위치의 경사도 래스터 픽셀값(단위 미확인),float64,7,수치형 입력 후보,Y
+slope_missing,경사도 래스터 NoData 여부(1=결측),int64,0,결측 표시 입력 후보,Y
